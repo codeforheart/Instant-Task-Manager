@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../todo';
-import { TodoDataService } from './../todo-data.service';
 
 @Component(
   {
@@ -14,8 +13,6 @@ export class TodoListComponent {
   month: any;
   day: any;
   sortedTasks: Array<any> = [];
-  errorMessage: any;
-  todoDataService: TodoDataService;
 
   @Input()
   todos: Todo[];
@@ -45,13 +42,6 @@ export class TodoListComponent {
   sortTodos(todos: Todo[]) {
     this.sortedTasks = todos.sort((a: any, b: any) =>
       a.date - b.date
-      );
-    }
-
-    onInit(): void {
-      this.todoDataService.getAllTodos().subscribe(
-        todos => this.todos = todos,
-        error => this.errorMessage = <any>error
       );
     }
 }
