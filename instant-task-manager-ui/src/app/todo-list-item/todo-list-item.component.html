@@ -1,0 +1,15 @@
+<div class="view">
+  <div class="dib">
+      <input class="toggle" type="checkbox" [ngClass]="{'incomplete': true, 'complete': false}" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
+  </div>
+  <div class="runtext title flex flex-rows">
+    <span class="title-line"><input type="text" [(ngModel)]="todo.title" /></span>
+    <span class="calandar-wrapper">
+      <ngbd-datepicker-popup [todo]="todo"></ngbd-datepicker-popup>
+    </span>
+  </div>
+  <div class="runtext desc">
+    <textarea placeholder="add task description" [(ngModel)]="todo.description"></textarea>
+  </div>
+  <button class="destroy" (click)="removeTodo(todo)"></button>
+</div>

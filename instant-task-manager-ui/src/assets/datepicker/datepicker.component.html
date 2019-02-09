@@ -1,0 +1,13 @@
+<form class="form-inline" (ngSubmit)="onSetDate($event)">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="Due Date" readonly
+               name="dp" 
+               [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+               (ngModelChange)="updateTodoDate(todo)">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </form>
